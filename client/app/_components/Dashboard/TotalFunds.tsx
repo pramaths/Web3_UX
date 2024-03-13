@@ -6,7 +6,7 @@ import ClientOnly from '../ClientOnly';
 
 const TotalFunds = ({ userFunds }: any) => {
   const [totalAmount, setTotalAmount] = useState<number>(0);
-  const { address } = useEthereum()
+  const { address } = useEthereum();
 
   useEffect(() => {
     // Calculate the sum of amounts whenever 'deductions' change
@@ -29,8 +29,11 @@ const TotalFunds = ({ userFunds }: any) => {
         />
         {address && (
           <ClientOnly>
-            <div className="text-[24px] self-center place-self-start">{address?.slice(0, 5)}...{address?.slice(38, 42)}</div>
-          </ClientOnly>)}
+            <div className="text-[24px] self-center place-self-start">
+              {address?.slice(0, 5)}...{address?.slice(38, 42)}
+            </div>
+          </ClientOnly>
+        )}
         {/* <Image
           className="self-center place-self-start mr-6 hover:border-[1px] border-solid border-[#48637C]"
           src={'/copy.svg'}

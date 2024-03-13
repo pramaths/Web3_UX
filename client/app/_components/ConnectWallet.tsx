@@ -21,13 +21,15 @@ const ConnectWallet = ({ style, isNav }) => {
               disabled={!!account}
               className={style}
             >
-              {isNav && (<Image
-                src={'/wallet.svg'}
-                alt="login email"
-                height={40}
-                width={40}
-                className="self-center"
-              />)}
+              {isNav && (
+                <Image
+                  src={'/wallet.svg'}
+                  alt="login email"
+                  height={40}
+                  width={40}
+                  className="self-center"
+                />
+              )}
               <h3 className="text-[24px] self-center">Connect</h3>
             </button>
             {/* <br />

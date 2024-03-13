@@ -1,12 +1,12 @@
 enum Network {
-    avalanche = 'avalanche-testnet',
-    polygon = 'matic-mumbai',
-    ethereum = 'eth-sepolia',
+  avalanche = 'avalanche-testnet',
+  polygon = 'matic-mumbai',
+  ethereum = 'eth-sepolia'
 }
 
 export type TokenBalances = {
-    chain: string,
-    amount: number
-}
+  chain: string;
+  amount: number;
+};
 
 export { Network };

@@ -13,9 +13,9 @@ import LhsChat from './LhsChat';
 import ChatRecieved from './ChatRecieved';
 import ChatSent from './ChatSent';
 import ParticleAuthProvider from './Providers/ParticleAuthProvider';
-import GoldKitProvider from './Providers/GoldKitProvider'
-import ConnectWallet from './ConnectWallet'
-import AccountInfo from './AccountInfo'
+import GoldKitProvider from './Providers/GoldKitProvider';
+import ConnectWallet from './ConnectWallet';
+import AccountInfo from './AccountInfo';
 
 export {
   DeductionTotal,

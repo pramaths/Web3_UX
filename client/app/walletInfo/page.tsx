@@ -12,7 +12,7 @@ import { useEthereum } from '@particle-network/auth-core-modal';
 import { useAccount } from '@particle-network/connectkit';
 
 const WalletInfoPage = () => {
-  const account = useAccount()
+  const account = useAccount();
   return (
     <div className="px-20 py-16 bg-[linear-gradient(299deg,_#FFFCEA_0%,_#FFF8D4_0.01%,_#F8FCFF_100%)]">
       <div className="z-30">
@@ -21,7 +21,7 @@ const WalletInfoPage = () => {
         </h1>
         <div className="test-class font-semibold mb-12">
           <TokenTransfersListView
-            chain_name={"avalanche-testnet"} //chain name
+            chain_name={'avalanche-testnet'} //chain name
             address={account} //sample address
             contract_address="0x55104Ed9ab9f3b58dB55D60429091cA203302FaF"
           />
@@ -40,7 +40,12 @@ const WalletInfoPage = () => {
       <div className=" rounded-md font-semibold text-[#000000] p-6 test-class">
         <NFTWalletTokenListView
           address={account} //sample address
-          chain_names={['eth-mainnet', 'eth-sepolia', 'matic-mumbai', 'avalanche-testnet']} //sample list of chains
+          chain_names={[
+            'eth-mainnet',
+            'eth-sepolia',
+            'matic-mumbai',
+            'avalanche-testnet'
+          ]} //sample list of chains
         />
       </div>
       <Image

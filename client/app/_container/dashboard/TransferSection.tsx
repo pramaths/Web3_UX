@@ -8,7 +8,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const TransferSection = ({ userFunds }) => {
-  const { recipient, amount, network, setRecipient, setAmount, setNetwork, calculateDeductions } = useAppContext()
+  const {
+    recipient,
+    amount,
+    network,
+    setRecipient,
+    setAmount,
+    setNetwork,
+    calculateDeductions
+  } = useAppContext();
 
   const previewHandler = async () => {
     // console.log(calculateDeductions(userFunds, amount))
@@ -24,10 +32,10 @@ const TransferSection = ({ userFunds }) => {
     setTimeout(() => {
       // FUNCTION FOR DEDUCTION
       // INTEGRA
-      const promise = new Promise(resolve => {
+      const promise = new Promise((resolve) => {
         calculateDeductions(userFunds, amount);
-        setTimeout(resolve, 1000)
-      })
+        setTimeout(resolve, 1000);
+      });
       toast.promise(promise, {
         pending: 'Calculating Deductions',
         success: 'Deductions Calculated',
@@ -45,7 +53,7 @@ const TransferSection = ({ userFunds }) => {
         <h3 className="text-start text-[21px]">Type Recipient</h3>
         <input
           onChange={(e) => {
-            console.log(e.target.value)
+            console.log(e.target.value);
             setRecipient(e.target.value);
           }}
           value={recipient}
@@ -89,8 +97,7 @@ const TransferSection = ({ userFunds }) => {
               placeholder="Type amount"
               className="w-[100%]  p-[9px] rounded-[12px] m-[3px] border-[0.3px] border-solid border-[#BDCFD0]"
             />
-            <div className="rounded-[12px] m-[3px] border-[0.3px] border-solid border-[#BDCFD0] hover:text-[18px] hover:px-[4px]"
-            >
+            <div className="rounded-[12px] m-[3px] border-[0.3px] border-solid border-[#BDCFD0] hover:text-[18px] hover:px-[4px]">
               USDC
             </div>
           </div>

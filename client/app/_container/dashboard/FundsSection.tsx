@@ -1,10 +1,9 @@
-"use client"
+'use client';
 import { ChainFund, TotalFunds } from '@/app/_components';
 import { chains } from '@/app/_lib/constants';
 import Image from 'next/image';
 
 const FundsSection = ({ userFunds }) => {
-
   return (
     <div className="flex flex-col gap-4 self-start place-self-end p-4 max-h-[100%] items-start justify-start">
       <TotalFunds userFunds={userFunds} />
@@ -24,7 +23,12 @@ const FundsSection = ({ userFunds }) => {
       {/* chains and their funds */}
       <div className="w-[288px] grid gap-[16px] overflow-scroll max-h-[330px]">
         {chains.map((chain) => (
-          <ChainFund chain={chain.name} bgCol={chain.bgProp} key={chain.name} userFunds={userFunds} />
+          <ChainFund
+            chain={chain.name}
+            bgCol={chain.bgProp}
+            key={chain.name}
+            userFunds={userFunds}
+          />
         ))}
       </div>
     </div>

@@ -11,30 +11,40 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const DeductionSection = ({ signer }) => {
-  const { sendTransaction } = useEthereum()
-  const { deductions, recipient, amount, destinationChainId, deductionAmount, deductionChainId } = useAppContext()
-
+  const { sendTransaction } = useEthereum();
+  const {
+    deductions,
+    recipient,
+    amount,
+    destinationChainId,
+    deductionAmount,
+    deductionChainId
+  } = useAppContext();
 
   const transferHandler = async () => {
-    const contractInstance = new ethers.Contract(MainContract.contractAddress, MainContract.abi, signer)
-    const bigNumberChainId = ethers.BigNumber.from(destinationChainId)
+    const contractInstance = new ethers.Contract(
+      MainContract.contractAddress,
+      MainContract.abi,
+      signer
+    );
+    const bigNumberChainId = ethers.BigNumber.from(destinationChainId);
     const data = await contractInstance.populateTransaction.sendAssets(
       recipient,
       parseUnits(amount.toString(), 'ether'),
       bigNumberChainId,
       deductionChainId,
       deductionAmount
-    )
+    );
     // const contractInstance = new ethers.Contract(IERC20.contractAddress, IERC20.abi, signer)
     // const data = await contractInstance.populateTransaction.approve("0x35343628C66991404ecE443083b90B0d1CDDe4Fa", parseUnits("1000000000000000", 'ether'))
     // await contractInstance.populateTransaction.sendAssets("0x79fDC8EC923aE2d6B0CC3757b476422e01DAbE7d", 200, 80001, [], [])
-    console.log(">>>>>>>>>>>>>>>>>. data", data)
+    console.log('>>>>>>>>>>>>>>>>>. data', data);
     // TRANSFER CLICKED
     const txnx = await sendTransaction({
       to: MainContract.contractAddress,
       data: data.data
-    })
-    console.log("transaction", txnx)
+    });
+    console.log('transaction', txnx);
     setTimeout(() => {
       // FUNCTION FOR TRANSFER
       // INTEGRA
@@ -69,9 +79,10 @@ const DeductionSection = ({ signer }) => {
             className="flex flex-col overflow-y-scroll max-h-[210px] 
           rounded-md mb-[6px] border-[0.1px] border-solid border-[#000000]"
           >
-            {deductions && deductions.map((chain, index) => (
-              <ChainSubtotal chain={chain} key={index} />
-            ))}
+            {deductions &&
+              deductions.map((chain, index) => (
+                <ChainSubtotal chain={chain} key={index} />
+              ))}
           </div>
         </div>
         {/* deduction total */}
